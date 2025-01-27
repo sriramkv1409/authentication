@@ -4,6 +4,8 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { body, validationResult } = require("express-validator");
 const User = require("./models/User"); // Adjust path as needed
+const dotenv = require("dotenv");
+dotenv.config();
 
 
 const app = express();
@@ -13,7 +15,7 @@ app.use(express.json());
 
 // MongoDB connection
 mongoose
-  .connect('mongodb+srv://sriramkv1409:sriramkv2005@cluster0.gbsuknc.mongodb.net/cibofind')
+  .connect(process.env.MONGO_URI,{ useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("Failed to connect to MongoDB:", err));
 
