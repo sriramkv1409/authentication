@@ -36,7 +36,10 @@ mongoose
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
   
         // Create and save user
-        const user = new User({ name: req.body.name, email: req.body.email, password: hashedPassword });
+        const user = new User(
+          { name: req.body.name, 
+            email: req.body.email,
+            password: hashedPassword });
         await user.save();
   
         res.status(201).send("User registered successfully");
@@ -75,5 +78,5 @@ mongoose
   );
   
 // Start the server
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3003;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
