@@ -18,7 +18,7 @@ app.use(express.json());
 
 // MongoDB connection
 mongoose
-  .connect('mongodb+srv://sriramkv1409:helloworld@cluster0.gbsuknc.mongodb.net/cibofind')
+  .connect('mongodb+srv://sriramkv1409:helloworld@cluster0.gbsuknc.mongodb.net/musicapp')
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("Failed to connect to MongoDB:", err));
 
@@ -94,5 +94,5 @@ app.post("/login",
 );
 
 // Start the server
-const PORT = process.env.PORT || 3003;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
